@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.reggie.mapper.SetmealDishMapper">
+    <insert id="save" parameterType="java.util.List">
+        insert into setmeal_dish (id, setmeal_id, dish_id, name, price, copies, create_time, update_time, create_user, update_user)
+        values
+        <foreach collection="list" item="setmealDish" separator=",">
+            (#{setmealDish.id}, #{setmealDish.setmealId}, #{setmealDish.dishId}, #{setmealDish.name}, #{setmealDish.price}, #{setmealDish.copies}, #{setmealDish.createTime}, #{setmealDish.updateTime}, #{setmealDish.createUser}, #{setmealDish.updateUser})
+        </foreach>
+    </insert>
+</mapper>
